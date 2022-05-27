@@ -1,4 +1,5 @@
 {
+  "homepage": "https://typescontents.shop/",
   "name": "contents",
   "version": "0.1.0",
   "private": true,
@@ -7,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next export && type NUL > out/.nojekyll && copy CNAME out && gh-pages -d out"
+    "deploy": "next export && type NUL > out/.nojekyll && copy CNAME out && gh-pages -d out -t true"
   },
   "dependencies": {
     "caver-js": "^1.4.1",
