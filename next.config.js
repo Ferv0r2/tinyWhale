@@ -14,6 +14,7 @@ const nextConfig = {
     NFT_CA: process.env.NFT_CA,
     ITEM_CA: process.env.ITEM_CA,
     BOX_CA: process.env.BOX_CA,
+    MINING_CA: process.env.MINING_CA,
   },
 };
 

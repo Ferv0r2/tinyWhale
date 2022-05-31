@@ -1,5 +1,4 @@
 import React from "react";
-import Loading from "components/Loading";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -38,7 +37,9 @@ const Nav = ({ address, network }) => {
         ) : (
           <div className="hidden md:block">
             <div className="flex">
-              <Loading />
+              <div className="relative flex w-7 h-7 animate-spin">
+                <Image layout="fill" src="/images/loading.png" alt="loading" />
+              </div>
               <p className="mx-1.5 m-auto text-sm">Login with Kaikas</p>
             </div>
           </div>

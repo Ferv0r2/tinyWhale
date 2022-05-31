@@ -133,8 +133,7 @@ const Layout = ({ children }) => {
           <div className="absolute right-8 bottom-0">
             <div
               className="toUp relative w-14 h-14 cursor-pointer"
-              onClick={(e) => toUp()}
-            >
+              onClick={(e) => toUp()}>
               <Image layout="fill" src="/images/onTop.png" />
             </div>
             <p className="text-top_gray text-center text-sm font-[GmarketSansBold]">

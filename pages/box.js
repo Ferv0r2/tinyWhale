@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import BoxSlider from "components/BoxSlider";
 import itemContract from "klaytn/itemContract";
 import boxContract from "klaytn/boxContract";
+import BoxSlider from "components/BoxSlider";
 import Modal from "components/BoxModal";
+import Loading from "components/Loading";
 import itemProb from "data/item.json";
 
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -18,6 +19,7 @@ const Box = () => {
   const account = useRecoilValue(accountState);
   const balance = useRecoilValue(balanceState);
   const boxId = useRecoilValue(boxIdState);
+  const [isLoading, setLoading] = useState(true);
   const [key1, setKey1] = useState(0);
   const [key2, setKey2] = useState(0);
   const [key3, setKey3] = useState(0);
@@ -26,6 +28,7 @@ const Box = () => {
 
   useEffect(() => {
     setBg("bg-gradient-to-b from-boxTop to-boxBottom");
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -163,6 +166,8 @@ const Box = () => {
     setModal(false);
   };
 
+  if (isLoading) return <Loading />;
+
   return (
     <div className="min-h-screen max-w-4xl m-auto text-white">
       <BoxSlider />
@@ -171,8 +176,7 @@ const Box = () => {
       <div className="pt-20 pb-14 w-40 m-auto">
         <div
           className="bg-gradient-to-b from-btnTop to-btnBottom text-center px-6 py-4 rounded-2xl cursor-pointer hover:from-white hover:to-white hover:text-btnTop"
-          onClick={sendTxKey}
-        >
+          onClick={sendTxKey}>
           <p className="text-xl font-[NanumSqureBold] font-bold">OPEN BOX</p>
         </div>
       </div>

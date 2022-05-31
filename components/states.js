@@ -35,6 +35,11 @@ const boxIdState = atom({
   default: 0,
 });
 
+const pickIdState = atom({
+  key: "pickIdState",
+  default: 0,
+});
+
 export {
   bgState,
   scrollState,
@@ -43,4 +48,5 @@ export {
   balanceState,
   networkState,
   boxIdState,
+  pickIdState,
 };
