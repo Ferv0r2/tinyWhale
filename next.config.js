@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const isProd = (process.env.NODE_ENV || "production") === "production";
-const assetPrefix = isProd ? "https://typescontents.shop" : "";
+const assetPrefix = isProd ? "https://contents.kepler-452b.net" : "";
 
 const nextConfig = {
   reactStrictMode: true,
