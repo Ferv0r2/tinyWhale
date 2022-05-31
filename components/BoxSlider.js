@@ -2,23 +2,34 @@ import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 
+import { useSetRecoilState } from "recoil";
+import { boxIdState } from "components/states";
+
 const BoxSlider = () => {
-  const CustomPrevArrow = ({ onClick }) => {
+  const setBoxId = useSetRecoilState(boxIdState);
+
+  const CustomPrevArrow = ({ onClick, currentSlide }) => {
     return (
       <div
         className="absolute top-48 -left-16 w-8 h-8 cursor-pointer"
-        onClick={onClick}
+        onClick={() => {
+          onClick();
+          setBoxId(currentSlide);
+        }}
       >
         <Image layout="fill" src="/images/box/prev.png" />
       </div>
     );
   };
 
-  const CustomNextArrow = ({ onClick }) => {
+  const CustomNextArrow = ({ onClick, currentSlide }) => {
     return (
       <div
         className="absolute top-48 -right-16 w-8 h-8 cursor-pointer"
-        onClick={onClick}
+        onClick={() => {
+          onClick();
+          setBoxId(currentSlide);
+        }}
       >
         <Image layout="fill" src="/images/box/next.png" />
       </div>

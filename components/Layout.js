@@ -5,19 +5,23 @@ import Image from "next/image";
 import Nav from "components/Nav";
 import Footer from "components/Footer";
 
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
 import {
+  bgState,
   scrollState,
   scrollBtnState,
   accountState,
+  balanceState,
   networkState,
 } from "components/states";
 
 const Layout = ({ children }) => {
+  const bg = useRecoilValue(bgState);
   const [scroll, setScroll] = useRecoilState(scrollState);
   const [scrollBtn, setScrollBtn] = useRecoilState(scrollBtnState);
   const [account, setAccount] = useRecoilState(accountState);
   const [network, setNetwork] = useRecoilState(networkState);
+  const setBalance = useSetRecoilState(balanceState);
 
   useEffect(() => {
     loadAccountInfo();
@@ -25,6 +29,7 @@ const Layout = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    setBalanceInfo();
     const watch = () => {
       window.addEventListener("scroll", handleFollow);
     };
@@ -78,6 +83,15 @@ const Layout = ({ children }) => {
     setAccount(accounts);
   };
 
+  const setBalanceInfo = async () => {
+    const { klaytn } = window;
+    if (klaytn === undefined) return;
+    if (account === undefined || account === "") return;
+
+    const balances = await caver.klay.getBalance(account);
+    setBalance(caver.utils.fromPeb(balances, "KLAY"));
+  };
+
   const setNetworkInfo = async () => {
     const { klaytn } = window;
     if (klaytn === undefined) return;
@@ -87,27 +101,12 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div className="bg-main">
+    <div className={bg}>
       <Head>
         <title>Kepler-452b</title>
         <meta name="description" content="Kepler-452b Contents Page" />
         <link rel="icon" href="/favicon.ico" />
 
-        <link
-          href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          charSet="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        />
         <meta charset="utf-8" />
         <meta
           name="viewport"
@@ -127,7 +126,7 @@ const Layout = ({ children }) => {
         />
       </Head>
       <Nav address={account} network={network} />
-      <main className="max-w-5xl m-auto">{children}</main>
+      <main>{children}</main>
       <Footer />
       {scrollBtn ? (
         <div className="sticky right-8 bottom-8 ">

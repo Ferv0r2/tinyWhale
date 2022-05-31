@@ -9,6 +9,22 @@ module.exports = {
     extend: {
       colors: {
         main: "#0d0222",
+        boxTop: "#1a001f",
+        boxBottom: "#280034",
+        btnTop: "#83187f",
+        btnBottom: "#490b53",
+        areaPurple: "#190021",
+        bar: "#6b337c",
+        tableBg: "#380947",
+        tableDefault: "#fbd9ff",
+        tableBar: "#6b337c",
+        tableText: "#d49eff",
+        modalTop: "#220127",
+        modalBottom: "#490b53",
+        modalBorder: "#7e5486",
+        modalContent: "#752f80",
+        modalBtn: "#dfcce4",
+        modalBtnBorder: "#26003a",
         light_gray: "#b5b2bc",
         hover_pink: "#d52e82",
         box_text: "#fbd9ff",
@@ -30,7 +46,49 @@ module.exports = {
       right: {
         "-16": "-4rem",
       },
+      minHeight: {
+        "1/2": "50%",
+        halfScreen: "70vh",
+      },
+      animation: {
+        show: "modalShow 0.3s",
+        showInfinity: "modalShow 1s infinite alternate",
+        showDisplay: "itemShow 0.5s",
+        boxFlicker: "flicker 1.5s infinite alternate",
+      },
+      keyframes: {
+        modalShow: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        itemShow: {
+          from: {
+            opacity: 0,
+            transform: "scale(0)",
+          },
+          to: {
+            opacity: 1,
+            transform: "scale(1)",
+          },
+        },
+        flicker: {
+          "0%, 18%, 22%,100%": {
+            "box-shadow":
+              "0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #cf00cf, 0 0 80px #cf00cf, 0 0 90px #cf00cf, 0 0 100px #cf00cf, 0 0 150px #cf00cf",
+          },
+          "55%": {
+            "box-shadow":
+              "0 0 2px #fff, 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #cf00cf, 0 0 40px #cf00cf, 0 0 45px #cf00cf, 0 0 50px #cf00cf, 0 0 75px #cf00cf",
+          },
+        },
+      },
+      animationDelay: {
+        3000: "3000ms",
+      },
     },
   },
-  plugins: [],
+  variants: {
+    animationFillMode: ["responsive"],
+  },
+  plugins: [require("tailwindcss-animation")],
 };

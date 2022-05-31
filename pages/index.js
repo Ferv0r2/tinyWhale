@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { useSetRecoilState } from "recoil";
+import { bgState } from "components/states";
+
 const Home = () => {
+  const setBg = useSetRecoilState(bgState);
+
+  useEffect(() => {
+    setBg("bg-main");
+  }, []);
+
   return (
     <div className="min-h-screen max-w-3xl m-auto">
       <div className="relative w-80 h-64 sm:w-128 sm:h-108 m-auto">

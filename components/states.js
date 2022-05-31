@@ -1,5 +1,10 @@
 import { atom } from "recoil";
 
+const bgState = atom({
+  key: "bgState",
+  default: "bg-main",
+});
+
 const scrollState = atom({
   key: "scrollState",
   default: "",
@@ -25,10 +30,17 @@ const networkState = atom({
   default: "",
 });
 
+const boxIdState = atom({
+  key: "boxIdState",
+  default: 0,
+});
+
 export {
+  bgState,
   scrollState,
   scrollBtnState,
   accountState,
   balanceState,
   networkState,
+  boxIdState,
 };
