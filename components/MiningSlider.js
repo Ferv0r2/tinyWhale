@@ -9,12 +9,12 @@ const MiningSlider = () => {
   const setPickId = useSetRecoilState(pickIdState);
 
   const CustomPrevArrow = ({ onClick, currentSlide }) => {
+    setPickId(currentSlide);
     return (
       <div
         className="absolute top-48 -left-16 w-8 h-8 cursor-pointer"
         onClick={() => {
           onClick();
-          setPickId(currentSlide);
         }}>
         <Image layout="fill" src="/images/mining/prev.png" />
       </div>
@@ -22,12 +22,12 @@ const MiningSlider = () => {
   };
 
   const CustomNextArrow = ({ onClick, currentSlide }) => {
+    setPickId(currentSlide);
     return (
       <div
         className="absolute top-48 -right-16 w-8 h-8 cursor-pointer"
         onClick={() => {
           onClick();
-          setPickId(currentSlide);
         }}>
         <Image layout="fill" src="/images/mining/next.png" />
       </div>

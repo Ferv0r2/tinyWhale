@@ -9,28 +9,26 @@ const BoxSlider = () => {
   const setBoxId = useSetRecoilState(boxIdState);
 
   const CustomPrevArrow = ({ onClick, currentSlide }) => {
+    setBoxId(currentSlide);
     return (
       <div
         className="absolute top-48 -left-16 w-8 h-8 cursor-pointer"
         onClick={() => {
           onClick();
-          setBoxId(currentSlide);
-        }}
-      >
+        }}>
         <Image layout="fill" src="/images/box/prev.png" />
       </div>
     );
   };
 
   const CustomNextArrow = ({ onClick, currentSlide }) => {
+    setBoxId(currentSlide);
     return (
       <div
         className="absolute top-48 -right-16 w-8 h-8 cursor-pointer"
         onClick={() => {
           onClick();
-          setBoxId(currentSlide);
-        }}
-      >
+        }}>
         <Image layout="fill" src="/images/box/next.png" />
       </div>
     );
