@@ -31,7 +31,9 @@ const Mining = () => {
   }, []);
 
   useEffect(() => {
-    getPick();
+    setTimeout(async () => {
+      getPick();
+    }, 3000);
   });
 
   const getPick = async () => {
@@ -178,8 +180,7 @@ const Mining = () => {
       <div className="py-8 w-40 m-auto">
         <div
           className="rounded-2xl py-3 text-lg font-[GmarketSansBold] cursor-pointer  bg-miningBtnBg hover:bg-miningBtnHover"
-          onClick={sendTxItem}
-        >
+          onClick={sendTxItem}>
           START
         </div>
       </div>

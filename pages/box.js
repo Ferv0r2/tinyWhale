@@ -32,7 +32,9 @@ const Box = () => {
   }, []);
 
   useEffect(() => {
-    getKey();
+    setTimeout(async () => {
+      getKey();
+    }, 3000);
   });
 
   const getKey = async () => {

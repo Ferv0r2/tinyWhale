@@ -30,6 +30,31 @@ const networkState = atom({
   default: "",
 });
 
+const evolState = atom({
+  key: "evolState",
+  default: 0,
+});
+
+const evoledState = atom({
+  key: "evoledState",
+  default: {},
+});
+
+const spawnedState = atom({
+  key: "spawnedState",
+  default: {},
+});
+
+const mixTotalState = atom({
+  key: "mixTotalState",
+  default: {},
+});
+
+const mixEvolState = atom({
+  key: "mixEvolState",
+  default: {},
+});
+
 const boxIdState = atom({
   key: "boxIdState",
   default: 0,
@@ -46,6 +71,11 @@ export {
   scrollBtnState,
   accountState,
   balanceState,
+  evolState,
+  evoledState,
+  spawnedState,
+  mixTotalState,
+  mixEvolState,
   networkState,
   boxIdState,
   pickIdState,
