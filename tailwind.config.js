@@ -27,6 +27,10 @@ module.exports = {
         miningBg: "#130223",
         miningBtnBg: "#322543",
         miningBtnHover: "#94889e",
+        miningModalTop: "#32155f",
+        miningModalBottom: "#120326",
+        miningModalBorder: "#4b2e78",
+        miningModalText: "#a875bd",
         light_gray: "#b5b2bc",
         hover_pink: "#d52e82",
         top_gray: "#a3a3a3",
@@ -56,6 +60,7 @@ module.exports = {
         showInfinity: "modalShow 1s infinite alternate",
         showDisplay: "itemShow 0.5s",
         boxFlicker: "flicker 1.5s infinite alternate",
+        miningFlicker: "flickerBlue 1.5s infinite alternate",
       },
       keyframes: {
         modalShow: {
@@ -80,6 +85,16 @@ module.exports = {
           "55%": {
             "box-shadow":
               "0 0 2px #fff, 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #cf00cf, 0 0 40px #cf00cf, 0 0 45px #cf00cf, 0 0 50px #cf00cf, 0 0 75px #cf00cf",
+          },
+        },
+        flickerBlue: {
+          "0%, 18%, 22%,100%": {
+            "box-shadow":
+              "0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #32155f, 0 0 80px #32155f, 0 0 90px #32155f, 0 0 100px #32155f, 0 0 150px #32155f",
+          },
+          "55%": {
+            "box-shadow":
+              "0 0 2px #fff, 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #32155f, 0 0 40px #32155f, 0 0 45px #32155f, 0 0 50px #32155f, 0 0 75px #32155f",
           },
         },
       },

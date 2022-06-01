@@ -4,7 +4,6 @@ const isProd = (process.env.NODE_ENV || "production") === "production";
 const assetPrefix = isProd ? "https://contents.kepler-452b.net" : "";
 
 const nextConfig = {
-  reactStrictMode: true,
   assetPrefix: assetPrefix,
   images: {
     loader: "akamai",
